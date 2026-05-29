@@ -35,7 +35,7 @@ once your docker is successfully built and push to your registry of choice, you 
 
 Login on Edgegap portal app.edgegap.com
 
-![Alt text for the image](1.png)
+![Alt text for the image](server/1.png)
 
 
 Click on “version”
