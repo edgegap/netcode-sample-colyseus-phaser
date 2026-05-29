@@ -2,7 +2,7 @@
 
 Full source-code for the step-by-step tutorial on how to use Phaser + Colyseus together.
 
-- [See step-by-step Tutorial](https://colyseus.io/learn/phaser/)
+- [See step-by-step Tutorial](https://colyseus.io/learn/examples/phaser/)
 - [See Colyseus documentation](https://docs.colyseus.io/)
 
 ## How to host with Edgegap
