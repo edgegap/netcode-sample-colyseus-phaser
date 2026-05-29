@@ -1,14 +1,16 @@
 FROM node:22
- 
 WORKDIR /usr/src/app
- 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
+
+# Install SERVER deps
 COPY package*.json ./
- 
 RUN npm ci
-# run this for production
-# npm ci --only=production
- 
+
+# Install CLIENT deps
+COPY client/package*.json ./client/
+RUN npm ci --prefix client
+
+# Copy everything and build the client
 COPY . .
- 
+RUN npm run build --prefix client
+
 CMD [ "npm", "start" ]
