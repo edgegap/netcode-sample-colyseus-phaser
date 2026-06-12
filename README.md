@@ -14,11 +14,20 @@ Git clone https://github.com/edgegap/netcode-sample-colyseus-phaser.git
 
 You need to build the docker image. You can build it on your machine and push it to a registry of your choice. Below we’ll push it to Edgegap’s registry. Make sure you are logged in your registry before running docker build (i.e. docker login)
 
+Make sure your docker is running:
 docker ps 
+
+from within the folder of the git repo, build the docker image using :
 
 docker build -t grido/colyseus:v1.0 .  (replace grido/colyseus with your own docker registry)
 
+Once your docker image is built, you can try running it locally on your machine:
+
 docker run -d -p 7777:7777 -p 88:88 -e ARBITRIUM_PORT_GAMEPORT_EXTERNAL="7777" -e ARBITRIUM_PORT_CLIENTPORT_INTERNAL="88" -e ARBITRIUM_PORT_CLIENTPORT_EXTERNAL="88"  -e ARBITRIUM_PORT_GAMEPORT_INTERNAL="7777" --name mycolyseus grido/colyseus:v1.1
+
+You can open a browser to https://localhost:7777 to check if the game server is up, and to https://localhost:88 to try a game client and connecto to your game server. 
+
+Once succesful, you can push your container image to a container registry. Here we will push to docker hub, you could also push to edgegap's registry:
 
 docker login
 
