@@ -31,6 +31,7 @@ Git clone https://github.com/edgegap/netcode-sample-colyseus-phaser.git
 You need to build the docker image. You can build it on your machine and push it to a registry of your choice. Below we’ll push it to Edgegap’s registry. Make sure you are logged in your registry before running docker build (i.e. docker login)
 
 docker build . -t registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]
+
 docker push registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]
 
 once your docker is successfully built and push to your registry of choice, you can go on Edgegap’s platform and create your game profile and get it running. 
