@@ -1,22 +1,6 @@
-# Phaser: Real-time Multiplayer with Colyseus
 
-Full source-code for the step-by-step tutorial on how to use Phaser + Colyseus together.
 
-- [See step-by-step Tutorial](https://docs.colyseus.io/learn/examples/phaser)
-- [See Colyseus documentation](https://docs.colyseus.io/)
-
-## How to host with Edgegap
-- from root: `docker build . -t registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]`
-- push to Edgegap repository
-- create app version:
-    - 1GiB memory
-    - 1 vCPU
-    - Port mapping:
-        - clientport: 80 HTTP
-        - gameport: 7777 WS
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+Quick Start here!
 
 This code sample is a fork of Colyseus phaser demo (which you can find here https://github.com/colyseus/tutorial-phaser)  with the right elements to host on Edgegap.
 
@@ -30,7 +14,15 @@ Git clone https://github.com/edgegap/netcode-sample-colyseus-phaser.git
 
 You need to build the docker image. You can build it on your machine and push it to a registry of your choice. Below we’ll push it to Edgegap’s registry. Make sure you are logged in your registry before running docker build (i.e. docker login)
 
-docker build . -t registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]
+docker ps 
+
+docker build -t grido/colyseus:v1.0 .  (replace grido/colyseus with your own docker registry)
+
+docker run -d -p 7777:7777 -p 88:88 -e ARBITRIUM_PORT_GAMEPORT_EXTERNAL="7777" -e ARBITRIUM_PORT_CLIENTPORT_INTERNAL="88" -e ARBITRIUM_PORT_CLIENTPORT_EXTERNAL="88"  -e ARBITRIUM_PORT_GAMEPORT_INTERNAL="7777" --name mycolyseus grido/colyseus:v1.1
+
+docker login
+
+docker push grido/colyseus:v1.0  (replace grido/colyseus with your own docker registry)
 
 docker push registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]
 
@@ -100,6 +92,24 @@ From there you can go back and connect to the client port. It’ll allow you to 
 
 -----------------------------------------------------------------------------------------------------------------------------
 
+# Phaser: Real-time Multiplayer with Colyseus
+
+Full source-code for the step-by-step tutorial on how to use Phaser + Colyseus together. 
+
+- [See step-by-step Tutorial](https://docs.colyseus.io/learn/examples/phaser)
+- [See Colyseus documentation](https://docs.colyseus.io/)
+
+## How to host with Edgegap
+- from root: `docker build . -t registry.edgegap.com/[PROJECT]/[IMAGE]:[TAG]`
+- push to Edgegap repository
+- create app version:
+    - 1GiB memory
+    - 1 vCPU
+    - Port mapping:
+        - clientport: 80 HTTP
+        - gameport: 7777 WS
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
