@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 # Install SERVER deps
 COPY package*.json ./
 RUN npm ci
+RUN npx update-browserslist-db@latest
 
 # Install CLIENT deps
 COPY client/package*.json ./client/
